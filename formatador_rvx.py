@@ -21,7 +21,7 @@ def processar_base(base):
     base['telefone3'] = base.apply(lambda x: f"{int(x['ddd3'])}{int(x['numeroLinha3'])}" if x['whatsapp3'] == 'S' else '', axis=1)
     
     # Mantém colunas de interesse e formata o nome
-    base = base[['cpf', 'nome', 'nascimento', 'telefone0', 'telefone1', 'telefone2', 'telefone3']]
+    base = base[['cpf', 'nome', 'nascimento', 'telefone0', 'telefone1', 'telefone2', 'telefone3', 'email0']]
     base['nome'] = base['nome'].apply(lambda x: x.title())
     
     return base
