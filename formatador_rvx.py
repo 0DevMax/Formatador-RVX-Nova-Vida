@@ -9,7 +9,7 @@ def processar_base(base):
     # Seleciona colunas específicas
     base = base[['cpf', 'nome', 'nascimento', 'obito', 'ddd0', 'numeroLinha0', 'whatsapp0', 
                  'ddd1', 'numeroLinha1', 'whatsapp1', 'ddd2', 'numeroLinha2', 'whatsapp2', 
-                 'ddd3', 'numeroLinha3', 'whatsapp3']]
+                 'ddd3', 'numeroLinha3', 'whatsapp3', 'email0']]
     
     # Formata a coluna 'nascimento' para o formato 'YYYY-MM-DD'
     base['nascimento'] = base['nascimento'].astype(str).apply(lambda x: f"{x[:4]}-{x[4:6]}-{x[6:]}")
