@@ -14,7 +14,7 @@ def corrigir_alinhamento_colunas(caminho_do_arquivo, delimiter=';', encoding='IS
         index_col=False
     ).columns.tolist()
 
-    # Ficou redundante esse trecho. Vou revisar depois e refatorar
+    # Ficou redundante. Refatorar depois
     df = pd.read_csv(
         caminho_do_arquivo,
         delimiter=delimiter,
@@ -95,8 +95,8 @@ def processar_base_rvx(base):
         )
     
     # Seleciona e renomeia colunas para o formato padrão
-    base_final = base[['cpf', 'nome', 'nascimento', 'telefone0', 'telefone1', 'telefone2', 'telefone3', 'email0']]
-    base_final.columns = ['CPF', 'NOME', 'DATA_NASCIMENTO', 'TELEFONE1', 'TELEFONE2', 'TELEFONE3', 'TELEFONE4', 'EMAIL']
+    base_final = base[['cpf', 'nome', 'nascimento', 'telefone0', 'telefone1', 'telefone2', 'telefone3', 'email0', 'email1']]
+    base_final.columns = ['CPF', 'NOME', 'DATA_NASCIMENTO', 'TELEFONE1', 'TELEFONE2', 'TELEFONE3', 'TELEFONE4', 'EMAIL1', 'EMAIL2']
     
     return base_final
 
@@ -128,7 +128,9 @@ def processar_base_nova_vida(base):
         'TELEFONE2': telefones[1],
         'TELEFONE3': telefones[2],
         'TELEFONE4': telefones[3],
-        'EMAIL': base['EMAIL1']
+        'EMAIL': base['EMAIL1'],
+        'EMAIL1': base['EMAIL2'],
+        'EMAIL2': base['EMAIL3'],
     }
     
     base_final = pd.DataFrame(dados)
