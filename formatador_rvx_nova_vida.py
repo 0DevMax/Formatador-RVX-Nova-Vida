@@ -5,25 +5,13 @@ import chardet
 # # Funções # # 
 
 def corrigir_alinhamento_colunas(caminho_do_arquivo, delimiter=';', encoding='ISO-8859-1'):
-    # Armazena o nome e a ordem das colunas
-    colunas = pd.read_csv(
-        caminho_do_arquivo,
-        delimiter=delimiter,
-        encoding=encoding,
-        nrows=0,
-        index_col=False
-    ).columns.tolist()
-
-    # Ficou redundante. Refatorar depois
     df = pd.read_csv(
         caminho_do_arquivo,
         delimiter=delimiter,
         encoding=encoding,
         header=0,
-        names=colunas,
         index_col=False
     )
-
     return df
 
 def detectar_delimitador(arquivo, codificacao):
