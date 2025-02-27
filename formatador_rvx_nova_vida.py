@@ -90,6 +90,7 @@ def processar_base_rvx(base):
 
 def processar_base_nova_vida(base):
     base = base.loc[base['FLAG_DE_OBITO'] != "1"]
+    base['NASC'] = base['NASC'].astype(str).apply(lambda x: f"{x[8:]}/{x[5:7]}/{x[:4]}")
     
     # Cria colunas de telefone apenas para números com WhatsApp marcado
     telefones = []
