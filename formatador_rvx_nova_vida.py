@@ -71,7 +71,7 @@ def processar_base_rvx(base):
     base = base.loc[base['obito'] != "S"]
     
     # Formata a coluna 'nascimento'
-    base['nascimento'] = base['nascimento'].astype(str).apply(lambda x: f"{x[6:]}/{x[4:6]}/{x[:4]}")
+    base['nascimento'] = base['nascimento'].astype(str).apply(lambda x: f"{x[6:8]}/{x[4:6]}/{x[:4]}")
     
     # Processa telefones com WhatsApp
     for i in range(4):  # 4 números possíveis
